@@ -10,7 +10,7 @@ typedef struct{
 }STACK;
 
 
-//STACK °ü·Ã ÇÔ¼ö
+//STACK ê´€ë ¨ í•¨ìˆ˜
 int isEmpty(STACK stack){
 	if(stack.top==0)
 		return 1;
@@ -44,17 +44,17 @@ double PopNum(STACK *stack){
 	return stack->stackNum[--stack->top];
 }
 
-//main °ü·Ã ÇÔ¼ö
+//main ê´€ë ¨ í•¨ìˆ˜
 int findError(char* formula, char* postfix, int* postin){
 	int i=0;
-	int ind=0;		//¼ıÀÚ°¡ ³ª¿Ã Â÷·Ê 0; ¿¬»êÀÚ°¡ ³ª¿Ã Â÷·Ê 1;
-	//int bind=0;	//)°¡ ³ª¿Í¾ßÇÏ´Â »óÅÂÀÌ¸é 1;
-	int point=0;	//¼Ò¼öÁ¡ °³¼ö¸¦ ¼¼´Â º¯¼ö
+	int ind=0;		//ìˆ«ìê°€ ë‚˜ì˜¬ ì°¨ë¡€ 0; ì—°ì‚°ìê°€ ë‚˜ì˜¬ ì°¨ë¡€ 1;
+	//int bind=0;	//)ê°€ ë‚˜ì™€ì•¼í•˜ëŠ” ìƒíƒœì´ë©´ 1;
+	int point=0;	//ì†Œìˆ˜ì  ê°œìˆ˜ë¥¼ ì„¸ëŠ” ë³€ìˆ˜
 	
 	while(formula[i]!='\0'){
-		if(i==0){		//½ÃÀÛÀÌ ¿¬»êÀÚÀÎ °æ¿ì 
+		if(i==0){		//ì‹œì‘ì´ ì—°ì‚°ìì¸ ê²½ìš° 
 			if(formula[i]=='+'||formula[i]=='-'||formula[i]=='*'||formula[i]=='/'||formula[i]==')'||formula[i]=='.'){
-				return i;	//¿À·ù°¡ ³­ ÁöÁ¡À» ¹İÈ¯ 
+				return i;	//ì˜¤ë¥˜ê°€ ë‚œ ì§€ì ì„ ë°˜í™˜ 
 			}
 			else{
 				ind=1;
@@ -62,25 +62,25 @@ int findError(char* formula, char* postfix, int* postin){
 		}
 		
 		if(formula[i]=='+'||formula[i]=='-'||formula[i]=='*'||formula[i]=='/'){
-			if(ind==0){		//¼ıÀÚ°¡ ³ª¿Ã Â÷·Ê¿¡ ¿¬»êÀÚ°¡ ³ª¿Â °æ¿ì 
+			if(ind==0){		//ìˆ«ìê°€ ë‚˜ì˜¬ ì°¨ë¡€ì— ì—°ì‚°ìê°€ ë‚˜ì˜¨ ê²½ìš° 
 				return i;
 			}
 			else{
-				ind=0; point=0;	//¼ıÀÚ¸¦ ¼¼±â À§ÇØ ¼Ò¼öÁ¡ º¯¼ö ÃÊ±âÈ­
+				ind=0; point=0;	//ìˆ«ìë¥¼ ì„¸ê¸° ìœ„í•´ ì†Œìˆ˜ì  ë³€ìˆ˜ ì´ˆê¸°í™”
 				postfix[(*postin)++]=' ';
 				postfix[(*postin)++]=formula[i++];
-				postfix[(*postin)++]=' ';		//¾ÕµÚ·Î °ø¹éÀ» ºÙÀÓ-> ÀÌÈÄ °ø¹é¹®ÀÚ¸¦ ±âÁØÀ¸·Î ºĞ¸®ÇÏ±â À§ÇÔ 
+				postfix[(*postin)++]=' ';		//ì•ë’¤ë¡œ ê³µë°±ì„ ë¶™ì„-> ì´í›„ ê³µë°±ë¬¸ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë¶„ë¦¬í•˜ê¸° ìœ„í•¨ 
 				continue;
 			}
 		}
 		else if(formula[i]=='('){
 			/*bind=1;*/ point=0;
 			if(ind==1){
-				return i;	//¼ıÀÚ µÚ ¿©´Â °ıÈ£°¡ ³ª¿À´Â °æ¿ì ¿À·ùÁöÁ¡ ¹İÈ¯ 
+				return i;	//ìˆ«ì ë’¤ ì—¬ëŠ” ê´„í˜¸ê°€ ë‚˜ì˜¤ëŠ” ê²½ìš° ì˜¤ë¥˜ì§€ì  ë°˜í™˜ 
 			}
 			else{
 				postfix[(*postin)++]=formula[i++];
-				postfix[(*postin)++]=' ';		//¾ÕµÚ·Î °ø¹éÀ» ºÙÀÓ-> ÀÌÈÄ °ø¹é¹®ÀÚ¸¦ ±âÁØÀ¸·Î ºĞ¸®ÇÏ±â À§ÇÔ 
+				postfix[(*postin)++]=' ';		//ì•ë’¤ë¡œ ê³µë°±ì„ ë¶™ì„-> ì´í›„ ê³µë°±ë¬¸ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë¶„ë¦¬í•˜ê¸° ìœ„í•¨ 
 				continue;
 			} 
 		}
@@ -89,19 +89,19 @@ int findError(char* formula, char* postfix, int* postin){
 				return i;
 			point=0; /*bind=0;*/ ind=1;
 			postfix[(*postin)++]=' ';
-			postfix[(*postin)++]=formula[i++];		//¾ÕµÚ·Î °ø¹éÀ» ºÙÀÓ-> ÀÌÈÄ °ø¹é¹®ÀÚ¸¦ ±âÁØÀ¸·Î ºĞ¸®ÇÏ±â À§ÇÔ 
+			postfix[(*postin)++]=formula[i++];		//ì•ë’¤ë¡œ ê³µë°±ì„ ë¶™ì„-> ì´í›„ ê³µë°±ë¬¸ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë¶„ë¦¬í•˜ê¸° ìœ„í•¨ 
 			continue;
 		}
 		else if(formula[i]=='.'){
 			point++;
 			if(formula[i-1]=='+'||formula[i-1]=='-'||formula[i-1]=='*'||formula[i-1]=='/'||formula[i-1]==')'){
-				return i;		//¿¬»êÀÚ µÚ¿¡ ¼Ò¼öÁ¡ÀÌ ³ª¿Â °æ¿ì ¿À·ùÁöÁ¡ ¹İÈ¯ 
+				return i;		//ì—°ì‚°ì ë’¤ì— ì†Œìˆ˜ì ì´ ë‚˜ì˜¨ ê²½ìš° ì˜¤ë¥˜ì§€ì  ë°˜í™˜ 
 			}
 			else if(formula[i+1]=='+'||formula[i+1]=='-'||formula[i+1]=='*'||formula[i+1]=='/'||formula[i+1]==')'){
-				return i+1;		//¼Ò¼öÁ¡ µÚ¿¡ ¹Ù·Î ¿¬»êÀÚ°¡ ³ª¿Â °æ¿ì ¿À·ùÁöÁ¡ ¹İÈ¯ 
+				return i+1;		//ì†Œìˆ˜ì  ë’¤ì— ë°”ë¡œ ì—°ì‚°ìê°€ ë‚˜ì˜¨ ê²½ìš° ì˜¤ë¥˜ì§€ì  ë°˜í™˜ 
 			}
 			else if(point>1){
-				return i;		//¼Ò¼öÁ¡ÀÌ µÎ °³ ÀÌ»ó ³ª¿Â °æ¿ì ¿À·ùÁöÁ¡ ¹İÈ¯ 
+				return i;		//ì†Œìˆ˜ì ì´ ë‘ ê°œ ì´ìƒ ë‚˜ì˜¨ ê²½ìš° ì˜¤ë¥˜ì§€ì  ë°˜í™˜ 
 			}
 		}
 		else{
@@ -110,7 +110,7 @@ int findError(char* formula, char* postfix, int* postin){
 		postfix[(*postin)++]=formula[i++];
 	}
 	
-	if(ind==0||formula[i-1]=='.'){		//´İ´Â °ıÈ£°¡ ¾ø°Å³ª, ¿¬»êÀÚ, '.'·Î ³¡³ª¸é ¿À·ùÁöÁ¡À» ¹İÈ¯ 
+	if(ind==0||formula[i-1]=='.'){		//ë‹«ëŠ” ê´„í˜¸ê°€ ì—†ê±°ë‚˜, ì—°ì‚°ì, '.'ë¡œ ëë‚˜ë©´ ì˜¤ë¥˜ì§€ì ì„ ë°˜í™˜ 
 		//printf("\nIND: %d", ind);
 		return i-1;
 	}
@@ -119,7 +119,7 @@ int findError(char* formula, char* postfix, int* postin){
 		return i;
 	}*/
 	
-	return -1;	//¿À·ù°¡ ¾øÀ¸¸é -1 ¹İÈ¯ 
+	return -1;	//ì˜¤ë¥˜ê°€ ì—†ìœ¼ë©´ -1 ë°˜í™˜ 
 }
 int infixTopostfix(char postfix[], char cal[]){
 	STACK opt;
@@ -272,7 +272,7 @@ int main(void){
 	int n, bn;
 	double result;
 	
-	printf("¼ö½ÄÀ» ÀÔ·ÂÇÏ¼¼¿ä:\n");
+	printf("ìˆ˜ì‹ì„ ì…ë ¥í•˜ì„¸ìš”:\n");
 	gets(formula);
 	
 	n=findError(formula, postfix, &postin);
@@ -282,7 +282,7 @@ int main(void){
 		for(int i=0; i<n; i++){
 			printf(" ");
 		}
-		printf("^ ÀÌ À§Ä¡¿¡ ¿À·ù°¡ ÀÖ½À´Ï´Ù.");
+		printf("^ ì´ ìœ„ì¹˜ì— ì˜¤ë¥˜ê°€ ìˆìŠµë‹ˆë‹¤.");
 		return 0;
 	}
 	/*else{
@@ -297,7 +297,7 @@ int main(void){
 		for(int i=0; i<strlen(formula); i++){
 			printf(" ");
 		}
-		printf("^ ÀÌ À§Ä¡¿¡ ¿À·ù°¡ ÀÖ½À´Ï´Ù.\n");
+		printf("^ ì´ ìœ„ì¹˜ì— ì˜¤ë¥˜ê°€ ìˆìŠµë‹ˆë‹¤.\n");
 		return 0;
 	}
 	//printf("%s\n", calculation);
