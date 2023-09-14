@@ -47,15 +47,15 @@ void grantStud(void) {
         }
         stdname[10] = '\0';
 
-        for (j = 0; j < i; j++) {            //Áßº¹Ã¼Å©
+        for (j = 0; j < i; j++) {            //ì¤‘ë³µì²´í¬
             if (info[j].stdnum == num) {
                 break;
             }
         }
         if (j != i) {
-            i--;                        //Áßº¹ ¹ß»ý ½Ã Àç½ÇÇà
+            i--;                        //ì¤‘ë³µ ë°œìƒ ì‹œ ìž¬ì‹¤í–‰
         }
-        else {                           //ÀúÀå
+        else {                           //ì €ìž¥
             if (num < 20000000) {
                 if (onenine < STUDNUM / 4) {
                     info[i].stdnum = num;
