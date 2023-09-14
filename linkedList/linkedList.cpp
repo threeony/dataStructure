@@ -156,7 +156,7 @@ int main(void) {
 	printf("%p", indexstart);
 	result=search(indexstart, strlwr(tmp));
 	if(result==NULL){
-		printf("Ã£À» ¼ö ¾ø´Â ´Ü¾îÀÔ´Ï´Ù. ¶æÀ» Ãß°¡ÇÏ¼¼¿ä(Ãß°¡ÇÏÁö ¾ÊÀ¸·Á¸é °ø¹é)\n");
+		printf("ì°¾ì„ ìˆ˜ ì—†ëŠ” ë‹¨ì–´ì…ë‹ˆë‹¤. ëœ»ì„ ì¶”ê°€í•˜ì„¸ìš”(ì¶”ê°€í•˜ì§€ ì•Šìœ¼ë ¤ë©´ ê³µë°±)\n");
 		getchar();
 		printf(">>"); 
 		gets(meaning);
@@ -165,7 +165,7 @@ int main(void) {
 			strcpy(temp.mean, meaning);
 			before=compar(head, tmp);
 			head=insert(head, before, temp);
-			printf("%s %s °¡ Ãß°¡µÇ¾ú½À´Ï´Ù.\n", temp.word, temp.mean);
+			printf("%s %s ê°€ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.\n", temp.word, temp.mean);
 		}
 	}
 	else{
