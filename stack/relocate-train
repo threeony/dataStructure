@@ -6,7 +6,7 @@ typedef struct{
 	int top=0;
 }STACK;
 
-//STACK °ü·Ã ÇÔ¼ö
+//STACK ê´€ë ¨ í•¨ìˆ˜
 /*STACK* Create(void){
 	STACK* temp;
 	temp=malloc(sizeof(STACK));
@@ -49,7 +49,7 @@ int indexOf(int find, STACK stack){
 	return -1;
 }
 
-//main °ü·Ã ÇÔ¼ö
+//main ê´€ë ¨ í•¨ìˆ˜
 int enter(int* standby){
 	char temp[STACKSIZE];
 	int index=0;
@@ -67,13 +67,13 @@ int enter(int* standby){
 	return index;
 }
 
-void twoStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» µÎ °³ »ç¿ëÇÒ °æ¿ì 
+void twoStack(int* standby, int n){		//ì‚¬ìš©ìê°€ ìŠ¤íƒì„ ë‘ ê°œ ì‚¬ìš©í•  ê²½ìš° 
 	STACK stack1, stack2;
-	int order;					//inÇÒ ¼ıÀÚ 
-	int time=0;					//È½¼ö¸¦ ¼¼´Â º¯¼ö
-	int out=1;					//³ª¿Ã Â÷·ÊÀÇ ¿­Â÷ ¹øÈ£¸¦ ±â¾ïÇÏ´Â º¯¼ö
-	int search1, search2;		//½ºÅÃ1°ú ½ºÅÃ2¿¡ ³ª¿Ã Â÷·ÊÀÇ ¿­Â÷°¡ ÀÖ´ÂÁö Å½»öÇÏ´Â º¯¼ö
-	int data;					//push, pop µ¥ÀÌÅÍ
+	int order;					//iní•  ìˆ«ì 
+	int time=0;					//íšŸìˆ˜ë¥¼ ì„¸ëŠ” ë³€ìˆ˜
+	int out=1;					//ë‚˜ì˜¬ ì°¨ë¡€ì˜ ì—´ì°¨ ë²ˆí˜¸ë¥¼ ê¸°ì–µí•˜ëŠ” ë³€ìˆ˜
+	int search1, search2;		//ìŠ¤íƒ1ê³¼ ìŠ¤íƒ2ì— ë‚˜ì˜¬ ì°¨ë¡€ì˜ ì—´ì°¨ê°€ ìˆëŠ”ì§€ íƒìƒ‰í•˜ëŠ” ë³€ìˆ˜
+	int data;					//push, pop ë°ì´í„°
 	
 	for(int i=0; i<n; i++){
 		int index=0;
@@ -95,13 +95,13 @@ void twoStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» µÎ °³ »ç¿ëÇÒ °æ¿ì
 				break;
 			else{
 			if(search1!=-1){
-				while(stack1.top-1!=search1){		//ÇØ´ç ¿­Â÷°¡ ³ª¿Ã ¶§±îÁö pop, ´Ù¸¥ ½ºÅÃ¿¡ ³Ö±â 
+				while(stack1.top-1!=search1){		//í•´ë‹¹ ì—´ì°¨ê°€ ë‚˜ì˜¬ ë•Œê¹Œì§€ pop, ë‹¤ë¥¸ ìŠ¤íƒì— ë„£ê¸° 
 					data=Pop(&stack1);
 					printf("%02d: POP(1)\n", ++time);
 					Push(&stack2, data);
 					printf("%02d: PUSH(2, %d)\n", ++time, data);
 				}
-					data=Pop(&stack1);		//ÇØ´ç ¿­Â÷°¡ ³ª¿À¸é out 
+					data=Pop(&stack1);		//í•´ë‹¹ ì—´ì°¨ê°€ ë‚˜ì˜¤ë©´ out 
 					printf("%02d: POP(1)\n", ++time);
 					printf("%02d: OUT(%d)\n", time++, out);	out++;
 			}
@@ -124,7 +124,7 @@ void twoStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» µÎ °³ »ç¿ëÇÒ °æ¿ì
 			continue;
 		
 		//push
-		int low, high, mid;		//stack1¿¡ ÀÛÀºÂÊ->low, stack2¿¡ Å« ¼ö->high
+		int low, high, mid;		//stack1ì— ì‘ì€ìª½->low, stack2ì— í° ìˆ˜->high
 		if(isEmpty(stack1)==1&&isEmpty(stack2)==1){
 			low=out; high=n;
 		}
@@ -163,16 +163,16 @@ void twoStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» µÎ °³ »ç¿ëÇÒ °æ¿ì
 			printf("%02d: PUSH(2, %d)\n", ++time, order);
 		}
 	}
-	printf("Á¾·á(ÃÑ %dÈ¸)", time);
+	printf("ì¢…ë£Œ(ì´ %díšŒ)", time);
 }
 
-void threeStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» ¼¼ °³ »ç¿ëÇÒ °æ¿ì 
+void threeStack(int* standby, int n){		//ì‚¬ìš©ìê°€ ìŠ¤íƒì„ ì„¸ ê°œ ì‚¬ìš©í•  ê²½ìš° 
 	STACK stack1, stack2, stack3;
-	int order;					//inÇÒ ¼ıÀÚ 
-	int time=0;					//È½¼ö¸¦ ¼¼´Â º¯¼ö
-	int out=1;					//³ª¿Ã Â÷·ÊÀÇ ¿­Â÷ ¹øÈ£¸¦ ±â¾ïÇÏ´Â º¯¼ö
-	int search1, search2, search3;		//½ºÅÃ1°ú ½ºÅÃ2¿¡ ³ª¿Ã Â÷·ÊÀÇ ¿­Â÷°¡ ÀÖ´ÂÁö Å½»öÇÏ´Â º¯¼ö
-	int data;					//push, pop µ¥ÀÌÅÍ
+	int order;					//iní•  ìˆ«ì 
+	int time=0;					//íšŸìˆ˜ë¥¼ ì„¸ëŠ” ë³€ìˆ˜
+	int out=1;					//ë‚˜ì˜¬ ì°¨ë¡€ì˜ ì—´ì°¨ ë²ˆí˜¸ë¥¼ ê¸°ì–µí•˜ëŠ” ë³€ìˆ˜
+	int search1, search2, search3;		//ìŠ¤íƒ1ê³¼ ìŠ¤íƒ2ì— ë‚˜ì˜¬ ì°¨ë¡€ì˜ ì—´ì°¨ê°€ ìˆëŠ”ì§€ íƒìƒ‰í•˜ëŠ” ë³€ìˆ˜
+	int data;					//push, pop ë°ì´í„°
 	
 	for(int i=0; i<n; i++){
 		int index=0;
@@ -195,13 +195,13 @@ void threeStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» ¼¼ °³ »ç¿ëÇÒ °æ¿ì
 				break;
 			else{
 			if(search1!=-1){
-				while(stack1.top-1!=search1){		//ÇØ´ç ¿­Â÷°¡ ³ª¿Ã ¶§±îÁö pop, ´Ù¸¥ ½ºÅÃ¿¡ ³Ö±â 
+				while(stack1.top-1!=search1){		//í•´ë‹¹ ì—´ì°¨ê°€ ë‚˜ì˜¬ ë•Œê¹Œì§€ pop, ë‹¤ë¥¸ ìŠ¤íƒì— ë„£ê¸° 
 					data=Pop(&stack1);
 					printf("%02d: POP(1)\n", ++time);
 					Push(&stack2, data);
 					printf("%02d: PUSH(2, %d)\n", ++time, data);
 				}
-					data=Pop(&stack1);		//ÇØ´ç ¿­Â÷°¡ ³ª¿À¸é out 
+					data=Pop(&stack1);		//í•´ë‹¹ ì—´ì°¨ê°€ ë‚˜ì˜¤ë©´ out 
 					printf("%02d: POP(1)\n", ++time);
 					printf("%02d: OUT(%d)\n", time++, out);	out++;
 			}
@@ -242,11 +242,11 @@ void threeStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» ¼¼ °³ »ç¿ëÇÒ °æ¿ì
 			}
 		}
 		
-		if(index==1)			//outÇÑ ¿­Â÷´Â pushÇÏÁö ¾Ê±â À§ÇØ 
+		if(index==1)			//outí•œ ì—´ì°¨ëŠ” pushí•˜ì§€ ì•Šê¸° ìœ„í•´ 
 			continue;
 		
 		//push
-		int low, mid, high;		//stack1¿¡ ÀÛÀºÂÊ->low, stack2¿¡ Å« ¼ö->high 
+		int low, mid, high;		//stack1ì— ì‘ì€ìª½->low, stack2ì— í° ìˆ˜->high 
 		//printf("STACK1EMPTY: %d STACK2EMPTY: %d\n", ise1, ise2);
 		if(isEmpty(stack1)==1&&isEmpty(stack2)==1){
 			low=out; high=n;
@@ -308,7 +308,7 @@ void threeStack(int* standby, int n){		//»ç¿ëÀÚ°¡ ½ºÅÃÀ» ¼¼ °³ »ç¿ëÇÒ °æ¿ì
 			printf("%02d: PUSH(3, %d)\n", ++time, order);
 		}
 	}
-	printf("Á¾·á(ÃÑ %dÈ¸)", time);
+	printf("ì¢…ë£Œ(ì´ %díšŒ)", time);
 }
 
 int main(void){
@@ -316,10 +316,10 @@ int main(void){
 	int standby[STACKSIZE];
 	int n;
 	
-	printf("½ºÅÃÀÇ °³¼ö: ");
+	printf("ìŠ¤íƒì˜ ê°œìˆ˜: ");
 	scanf("%d", &stackNum);
-	getchar();		//enter¸¦ ¹ö¸®±â À§ÇØ
-	printf("¿­Â÷ ¹øÈ£ ÀÔ·Â: ");
+	getchar();		//enterë¥¼ ë²„ë¦¬ê¸° ìœ„í•´
+	printf("ì—´ì°¨ ë²ˆí˜¸ ì…ë ¥: ");
 	n=enter(standby);
 	if(stackNum==2){
 		twoStack(standby, n);
