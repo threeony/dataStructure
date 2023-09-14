@@ -95,7 +95,7 @@ int main(void) {
 		findhash = hash_function(tmp);
 		for (t = 0; t < TABLE_WIDTH; t++) {
 			if (strcmp(htable[findhash][t].word, tmp) == 0) {
-				printf("%s (%dȸ �˻�)\n", htable[findhash][t].mean, findcount);
+				printf("%s (%dÈ¸ °Ë»ö)\n", htable[findhash][t].mean, findcount);
 				break;
 			}
 			else {
@@ -107,7 +107,7 @@ int main(void) {
 				findhash++;
 				for (t = 0; t < TABLE_WIDTH; t++) {
 					if (strcmp(htable[findhash][t].word, tmp) == 0) {
-						printf("%s (%dȸ �˻�)\n", htable[findhash][t].mean, findcount);
+						printf("%s (%dÈ¸ °Ë»ö)\n", htable[findhash][t].mean, findcount);
 						break;
 					}
 					else {
