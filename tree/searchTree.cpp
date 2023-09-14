@@ -141,15 +141,15 @@ int main(void) {
 	//nodeCount=inorder_ret(head);
 	treeHeight=get_height(head);
 
-	printf("»çÀüÆÄÀÏÀ» ¸ðµÎ ÀÐ¾ú½À´Ï´Ù. %d°³ÀÇ ´Ü¾î°¡ ÀÖ½À´Ï´Ù.\n", ind);
-	printf("AÆ®¸®ÀÇ ÀüÃ¼ ³ôÀÌ´Â %dÀÔ´Ï´Ù.", treeHeight);
-	printf(" AÆ®¸®ÀÇ ³ëµå ¼ö´Â %d°³ ÀÔ´Ï´Ù.\n", nodeCount);
+	printf("ì‚¬ì „íŒŒì¼ì„ ëª¨ë‘ ì½ì—ˆìŠµë‹ˆë‹¤. %dê°œì˜ ë‹¨ì–´ê°€ ìžˆìŠµë‹ˆë‹¤.\n", ind);
+	printf("AíŠ¸ë¦¬ì˜ ì „ì²´ ë†’ì´ëŠ” %dìž…ë‹ˆë‹¤.", treeHeight);
+	printf(" AíŠ¸ë¦¬ì˜ ë…¸ë“œ ìˆ˜ëŠ” %dê°œ ìž…ë‹ˆë‹¤.\n", nodeCount);
 	
 	printf(">>");
 	scanf("%s", &tmp);
 	strcat(tmp, " ");
 	result=search(head, tmp, &levelCount);
-	printf("%s (·¹º§ %d)", result->note.mean, levelCount);
+	printf("%s (ë ˆë²¨ %d)", result->note.mean, levelCount);
 
 	fin(head);
 
