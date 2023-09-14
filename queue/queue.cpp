@@ -9,7 +9,7 @@ typedef struct{
 	int rear=0;
 }QUEUE;
 
-//QUEUE °ü·Ã ÇÔ¼ö
+//QUEUE ê´€ë ¨ í•¨ìˆ˜
 int isEmpty(QUEUE *q){
 	return (q->front==q->rear);
 }
@@ -40,7 +40,7 @@ int main(void){
 	int eind=0;
 	char flag='a';
 	
-	printf("½Ã½ºÅÛÀÌ ½ÃÀÛµË´Ï´Ù.\n");
+	printf("ì‹œìŠ¤í…œì´ ì‹œì‘ë©ë‹ˆë‹¤.\n");
 	
 	while(1){
 		eind=0;
